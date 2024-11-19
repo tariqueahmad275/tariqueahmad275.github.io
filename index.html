@@ -8,15 +8,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Global styles */
     body {
       font-family: 'Montserrat', sans-serif;
       margin: 0;
       padding: 0;
       background-color: #f5f5f5;
     }
-
-    /* Header styles */
     header {
       background: linear-gradient(to right, #4facfe, #00f2fe);
       padding: 20px;
@@ -25,79 +22,43 @@
       align-items: center;
       color: white;
     }
-
     .logo {
       font-size: 32px;
       font-weight: bold;
     }
-
     nav ul {
       list-style-type: none;
       display: flex;
       gap: 30px;
     }
-
     nav a {
       color: white;
       text-decoration: none;
       font-size: 18px;
     }
-
-    /* Main content styles */
     main {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 60px;
       padding: 60px;
     }
-
-    .meet-us {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .meet-us h2 {
-      font-size: 28px;
-      margin: 0;
-    }
-
-    .meet-us p {
-      font-size: 16px;
-      margin: 0;
-    }
-
-    .meet-us-map img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .pitch-us {
+    .meet-us, .pitch-us {
       background-color: white;
       padding: 40px;
       border-radius: 8px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-
-    .pitch-us h2 {
-      font-size: 28px;
-      margin-bottom: 20px;
-    }
-
     .pitch-us form {
       display: flex;
       flex-direction: column;
       gap: 20px;
     }
-
     .pitch-us input, .pitch-us textarea {
       padding: 12px 16px;
       font-size: 16px;
       border: 1px solid #ccc;
       border-radius: 4px;
     }
-
     .pitch-us button {
       background-color: #4facfe;
       color: white;
@@ -107,14 +68,16 @@
       border-radius: 4px;
       cursor: pointer;
     }
-
-    /* Footer styles */
     footer {
       background-color: #333;
       color: white;
       padding: 20px;
       text-align: center;
       font-size: 14px;
+    }
+    .response-message {
+      color: green;
+      font-size: 16px;
     }
   </style>
 </head>
@@ -137,24 +100,44 @@
       <p>+1 (123) 456-7890</p>
       <p>contact@nextap.com</p>
       <p>123 Main St, San Francisco, CA 94105</p>
-      <div class="meet-us-map">
-        <img src="https://via.placeholder.com/400x300" alt="Map">
-      </div>
     </section>
 
     <section class="pitch-us">
       <h2>Connect with us</h2>
-      <form>
-        <input type="text" placeholder="Your Name" />
-        <input type="email" placeholder="Your Email" />
-        <textarea placeholder="Your Message"></textarea>
+      <form id="contact-form">
+        <input type="text" id="name" placeholder="Your Name" required />
+        <input type="email" id="email" placeholder="Your Email" required />
+        <textarea id="message" placeholder="Your Message" required></textarea>
         <button type="submit">Send</button>
       </form>
+      <p class="response-message" id="response-message"></p>
     </section>
   </main>
 
   <footer>
     &copy; 2023 Nextap. All rights reserved.
   </footer>
+
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
+
+      try {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbxNNdIguQbWjsD-GyMtKPXovB773xWa-e758uZ0-jSlp5_uO6v6GSe_DWb2-ziSRZElfg/exec", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, message }),
+        });
+        const data = await response.json();
+        document.getElementById("response-message").textContent = data.message;
+        document.getElementById("contact-form").reset();
+      } catch (error) {
+        document.getElementById("response-message").textContent = "Error submitting the form. Please try again.";
+      }
+    });
+  </script>
 </body>
 </html>
