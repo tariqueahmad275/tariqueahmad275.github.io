@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nextap - Student-Focused Startup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Global styles */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+
+    /* Header styles */
+    header {
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    /* Main content styles */
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      padding: 60px;
+    }
+
+    .meet-us {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .meet-us h2 {
+      font-size: 28px;
+      margin: 0;
+    }
+
+    .meet-us p {
+      font-size: 16px;
+      margin: 0;
+    }
+
+    .meet-us-map img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .pitch-us {
+      background-color: white;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .pitch-us h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .pitch-us form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .pitch-us input, .pitch-us textarea {
+      padding: 12px 16px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .pitch-us button {
+      background-color: #4facfe;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* Footer styles */
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Nextap</div>
+    <nav>
+      <ul>
+        <li><a href="#">Our Work</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="meet-us">
+      <h2>Meet Us</h2>
+      <p>+1 (123) 456-7890</p>
+      <p>contact@nextap.com</p>
+      <p>123 Main St, San Francisco, CA 94105</p>
+      <div class="meet-us-map">
+        <img src="https://via.placeholder.com/400x300" alt="Map">
+      </div>
+    </section>
+
+    <section class="pitch-us">
+      <h2>Connect with us</h2>
+      <form>
+        <input type="text" placeholder="Your Name" />
+        <input type="email" placeholder="Your Email" />
+        <textarea placeholder="Your Message"></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2023 Nextap. All rights reserved.
+  </footer>
+</body>
+</html>
